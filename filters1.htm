@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="angularApp1">
+    <head>
+        <title>Introduction to AngularJS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <style>
+            html, body
+            {
+                font-size: 1.1em;
+            }
+        </style>
+
+        <!-- load angular via CDN -->
+        <script src="angular.min.js"></script>
+        <script src="angular-messages.js"></script>
+        <script src="filters1.js"></script>
+    </head>
+    <body>
+
+    <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+
+			</nav>
+		</header>
+
+<div class="container" ng-controller="filterController">
+    
+
+           <label>Search: <input ng-model="searchText"></label>
+           <table id="searchTextResults">
+             <tr><th>Name</th><th>Phone</th></tr>
+             <tr ng-repeat="friend in friends | filter:searchText">
+               <td>{{friend.name}}</td>
+               <td>{{friend.phone}}</td>
+             </tr>
+           </table>
+           <hr>
+           <label>Any: <input ng-model="search.$"></label> <br>
+           <label>Name only <input ng-model="search.name"></label><br>
+           <label>Phone only <input ng-model="search.phone"></label><br>
+           <label>Equality <input type="checkbox" ng-model="strict"></label><br>
+           <table id="searchObjResults">
+             <tr><th>Name</th><th>Phone</th></tr>
+             <tr ng-repeat="friendObj in friends | filter:search:strict">
+               <td>{{friendObj.name}}</td>
+               <td>{{friendObj.phone}}</td>
+             </tr>
+           </table>
+</div>
+</html>
