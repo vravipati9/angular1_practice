@@ -1,0 +1,145 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+      <header>
+  		</header>
+    </body>
+</html>
+
+<script>
+var num = 55;
+var name = "veera";
+
+if (name == "veera") {
+  var boolenFlag = true;    //this block is not creating a scope,
+}
+console.log(boolenFlag);    // if it creates scopes, this is undefined, but here it prints value as above block is not a scope.
+
+function checkScopes(name) {
+  var boolenFlag1 = true;
+  var num = 60;
+  console.log(name +"---"+num);    // prints 60
+}
+checkScopes("ravipati");
+//console.log(boolenFlag1);  // get runtime exception, because the scoep is with in that function.
+
+
+//to prevent multiple global variables, need to use Immediately Invoked Function Expression IIFE
+(function () {
+  var i = 10;
+  var j = 20;
+  console.log(i + j);
+})();
+
+//Closures
+//A closure is an inner function that has access to the outer (enclosing) function’s variables—scope chain.
+var aa = 11;
+
+function OuterFn() {
+  var bb = 22;
+  function InnerFn() {
+    console.log(aa);
+    console.log(bb);
+  }
+  InnerFn();
+}
+OuterFn();
+console.log("another way");
+function OuterFn1() {
+  var bb = 22;
+  var inFn = function InnerFn() {
+    //var dd = 44;
+    console.log(aa);
+    console.log(bb);
+  };
+  return inFn;
+}
+var inFn1 = OuterFn1();
+inFn1();  //even for this function, the value bb is still available eventhough it is delcared for OuterFn1 and the function
+          //scoped is closed after assigning to the variable. This is because js remmembers scope chains.
+
+var person = {
+  "firstName" : "Veera",
+  "lastName" : "Ravipati",
+  "getFirstName" : function() {
+    return this.firstName;
+  },
+  "getLastname" : function() {
+    return this.lastName;
+  }
+};
+console.log(person);
+//Improved code
+console.log("Closures examples")
+function createPerson() {
+  var firstName = "Veera";
+  var lastName = "Ravipati";
+
+  var returnObj = {
+    "getFirstName" : function() {
+      return firstName;
+    },
+    "getLastname" : function() {
+      return this.lastName;
+    }
+  };
+  return returnObj;
+};
+var person = createPerson();
+console.log(person.getFirstName());
+
+console.log("=======asynchronous call=======");
+var k;
+
+function print() {
+  console.log("called")
+  console.log(k);
+}
+for (k = 0; k < 10; k++) {
+  setTimeout(print, 1000);
+}
+
+console.log("=======fix the above problem with k variable=======");
+
+var l;
+
+for (l = 0; l < 10; l++) {
+  (function () {
+    var temp = l;
+    setTimeout(function print() {
+      console.log(temp);
+    }, 1000);
+  })();
+
+  for (l = 0; l < 10; l++) {
+    (function (temp) {
+      var temp = l;
+      setTimeout(function print() {
+        console.log(temp);
+      }, 1000);
+    })(i);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,111 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+      <header>
+  		</header>
+    </body>
+</html>
+
+<script>
+var obj1 = {
+  "name":"veera",
+  "lastName" : "ravipati"
+};
+obj2 = obj1;
+//obj2.name = "siva";
+
+obj3 = "veera";
+
+
+
+console.log("obj1 == obj2" +(obj1 == obj2));
+console.log("obj1 === obj2" +(obj1 === obj2));
+console.log('Comparing object with String');
+console.log("obj1 == obj2" +(obj1.name == obj3));
+console.log("obj1 === obj2" +(obj1.name === obj3));
+
+var a = "Hello";
+
+// function as parameter
+var f = function foo() {
+  console.log('Function expression called');
+}
+
+var executor = function(fn) {
+  fn();
+}
+
+executor(f);
+
+// functions in objects
+var myObj = {
+  "testProp" : true
+};
+
+myObj.myMethod = function() {
+  console.log("functions in Objects called");
+}
+
+myObj.myMethod();
+
+// Understanding this keyword
+var person = {
+  "firstName" : "veera",
+  "lastName" : "ravipati",
+  "getFullName" : function () {
+    return person.firstName +" "+ person.lastName;
+  },
+  "getFullName_1" : function() {
+    return this.firstName +" "+ this.lastName;
+  }
+};
+
+var fullName = person.getFullName();
+console.log("with out this keyword..."+fullName);
+
+var person2 = person;
+person = {};
+
+console.log(person2.getFullName());  //undefined, because person has been re-initialized with empty.
+//To avoid undefined, use this keyword in person object function property
+
+console.log(person2.getFullName_1());
+
+// javascript call()
+console.log("<<<<Using call()>>>>");
+var customer = {
+    fullName: function(city, country) {
+        return this.firstName + " " + this.lastName + " "+city +" "+country;
+    }
+}
+var customer1 = {
+    firstName:"John",
+    lastName: "Doe"
+}
+
+var customerFullName = customer.fullName.call(customer1, "Tally", "FL");
+var customerFullNameWithCity = customer.fullName.apply(customer1, ["Tallahassee", "FL"]);
+
+console.log(customerFullName);
+console.log(customerFullNameWithCity);
+//The call() method takes arguments separately.
+//The apply() method takes arguments as an array.
+
+
+//Array for each
+console.log("Array for each");
+var arr = [10, "Hello", {}];
+
+arr.forEach(function(element) {
+  console.log(element);
+});
+
+arr.forEach(function(element, index, array) {
+  console.log(element+ "-"+index+"-"+array);
+});
+
+
+
+</script>

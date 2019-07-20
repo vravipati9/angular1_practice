@@ -1,0 +1,34 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+      <header>
+  		</header>
+    </body>
+</html>
+
+<script>
+var bicycle1 = createBicycle("Honda", "Shine");
+var bicycle2 = createBicycle("Hero", "Splendor");
+function createBicycle(make, model) {
+  var bicycle = {};
+  bicycle.make = make;
+  bicycle.model = model;
+  return bicycle;
+}
+
+function createBicycleUsingConstructor(make, model) {
+  this.make = make;
+  this.model = model;
+
+}
+var bicycle3 = new createBicycleUsingConstructor("Hero", "xz");
+console.log(bicycle1);
+console.log(bicycle3);
+//To Distinguish between constructor function and regualar function, we have to start function name with Capital letter for regular function.
+
+
+
+
+</script>
