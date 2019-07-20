@@ -20,3 +20,16 @@ node server.js
 
 Now navigate to http://localhost:8080/index.html in your browser.
 
+--------------
+http://shop.oreilly.com/product/0636920040033.do
+http://shop.oreilly.com/product/0636920036487.do
+http://shop.oreilly.com/product/110000499.do
+http://shop.oreilly.com/product/0636920006052.do
+http://shop.oreilly.com/product/0636920044628.do
+http://shop.oreilly.com/product/0636920046646.do
+http://shop.oreilly.com/product/0636920049241.do
+http://shop.oreilly.com/product/0636920038153.do
+http://shop.oreilly.com/product/0636920043799.do
+http://shop.oreilly.com/product/0636920049401.do
+http://shop.oreilly.com/product/0636920127635.do
+http://shop.oreilly.com/product/0636920048473.do
