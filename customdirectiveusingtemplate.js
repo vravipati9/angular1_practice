@@ -5,13 +5,9 @@ var angularApp = angular.module('angularApp', ['ngRoute']);
 angularApp.config(function ($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'pages/fifth.html',
+    templateUrl: 'pages/usingCustomDirective.html',
     controller: 'mainController'
 
-  })
-  .when('/second', {
-    templateUrl: 'pages/sixth.html',
-    controller: 'secondController'
   })
 });
 

@@ -23,14 +23,24 @@ angularApp.service('nameService', function() {
     return self.name.length;
   }
 
+  this.findLength = function(name){
+       // return a Promise object so that the caller can handle success/failure
+       return name.length;
+  }
 });
 angularApp.controller('mainController', ['$scope', '$log', '$http', 'nameService', function($scope, $log, $http, nameService) {
     console.log('<<<Controller called>>>');
     $scope.name = nameService.name;
 
-    $scope.$watch('name', function() {
-      nameService.name = $scope.name;
-    });
+     $scope.$watch('name', function() {
+       //watch for name variable changes, update in nameService
+       nameService.name = $scope.name;
+     });
+
+    console.log(nameService.findLength($scope.name));
+
+
+
     // here log service is a single ton
     $log.main = 'property from main';
     $log.log($log);
@@ -43,10 +53,13 @@ angularApp.controller('secondController', ['$scope', '$log', '$http', 'nameServi
     console.log('<<<Controller called sec>>>');
     $scope.name = nameService.name;
 
-    $scope.$watch('name', function() {
-      nameService.name = $scope.name;
-    });
+    //watch for name variable changes, update in nameService
+     $scope.$watch('name', function() {
+       nameService.name = $scope.name;
+     });
+
     // same log service is used as well
     $log.second = 'property from second';
+    console.log(nameService.findLength($scope.name));
     $log.log($log);
 }]);

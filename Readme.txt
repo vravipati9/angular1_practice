@@ -13,6 +13,7 @@ You should be all set.
 NODE.JS OPTION:
 
 If you want to run the site using Node.js (install it from http://nodejs.org) run the following at the command-prompt from within the AngularJSDemos folder:
+Or we can zip version of node.js and set PATH environmental variable points to this unzip folder location.
 
 npm install
 
