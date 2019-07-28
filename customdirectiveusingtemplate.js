@@ -11,30 +11,19 @@ angularApp.config(function ($routeProvider) {
   })
 });
 
-angularApp.controller('mainController', ['$scope', '$log', '$http', function($scope, $log, $http, nameService) {
+angularApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
     console.log('<<<Controller called>>>');
     $scope.person = {
-      name: 'Veera',
-      address: '123 Old St, Washington DC...'
+       name: 'John Smith',
+       address: '123 Main St., FL 12345'
     }
-}]);
-
-
-angularApp.controller('secondController', ['$scope', '$log', '$http', function($scope, $log, $http, nameService) {
-    console.log('<<<Controller called sec>>>');
-
 }]);
 
 //searchResult is customdirective, search-result
 angularApp.directive("searchResult", function() {
   return {
-    restrict: 'AE',
+    restrict: 'AECM',
     templateUrl: 'pages/searchresult.html',
-    replace: true,
-    scope : {
-      personName: "@",
-      personAddressVar: "@personAddress"
-      <!--@ for text as single way binding and = for object as 2 way binding-->
-    }
+    replace: true
   }
 });
