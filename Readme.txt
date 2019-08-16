@@ -22,6 +22,8 @@ node server.js
 Now navigate to http://localhost:8080/index.html in your browser.
 
 --------------
+https://learning.oreilly.com/videos/angular-8/9781788998437
+
 http://shop.oreilly.com/product/0636920040033.do
 http://shop.oreilly.com/product/0636920036487.do
 http://shop.oreilly.com/product/110000499.do
